@@ -22,15 +22,12 @@ const addNote = (title, body) => {
 		title,
 		body
 	};
-
-
-
 	const duplicateNote = notes.filter((note) => note.title === title);
 	if (duplicateNote.length === 0) {
 		notes.push(note);
 		saveNotes(notes);
+		return note;
 	}
-
 };
 
 

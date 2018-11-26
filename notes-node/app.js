@@ -13,8 +13,14 @@ console.log("process", command);
 console.log("Yargs", argv);
 
 if (command === "add") {
-	
-	notes.addNote(argv.title, argv.body);
+	const newNote = notes.addNote(argv.title, argv.body);
+	if (newNote) {
+		console.log("successfully added note");
+		console.log(`title: ${newNote.title}`);
+		console.log(`body: ${newNote.body}`);
+	}
+	else console.log("you have a duplicate note title");
+
 } else if (command === "list") {
 	notes.getAll();
 } else if (command === "remove") {
